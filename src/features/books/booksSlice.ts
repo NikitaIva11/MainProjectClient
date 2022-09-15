@@ -2,7 +2,7 @@ import { PayloadAction } from './../../../node_modules/@reduxjs/toolkit/src/crea
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { IBooks } from '../../models/booksModels/books.model';
 
-const HOST = process.env.REACT_APP_HOST || 'http://localhost:2700/api'
+const HOST = 'https://main-project-server.herokuapp.com/api'
 
 interface IState {
      books: undefined | [IBooks],

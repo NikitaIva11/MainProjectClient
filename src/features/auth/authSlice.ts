@@ -2,7 +2,7 @@ import { IUser } from './../../models/authModels/user.model';
 import { PayloadAction } from './../../../node_modules/@reduxjs/toolkit/src/createAction';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const HOST = process.env.REACT_APP_HOST || 'http://192.168.1.108:2700/api'
+const HOST =  'https://main-project-server.herokuapp.com/api'
 
 interface IState {
      auth: boolean,
