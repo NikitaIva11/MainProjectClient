@@ -2,7 +2,7 @@ import { IUser } from './../../models/authModels/user.model';
 import { PayloadAction } from './../../../node_modules/@reduxjs/toolkit/src/createAction';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const HOST = process.env.REACT_HOST ||  'http://localhost:2700/api'
+const HOST = process.env.REACT_APP_HOST ||  'http://localhost:2700/api'
 
 interface IState {
      auth: boolean,
