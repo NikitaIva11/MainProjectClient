@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { IBooks } from '../../models/booksModels/books.model';
 import { log } from 'console';
 
-const HOST = 'https://main-project-server.herokuapp.com/api'
+const HOST = process.env.REACT_HOST||'http://localhost:2700/api'
 
 interface IState {
      favorite: undefined | [IBooks],

@@ -2,7 +2,7 @@ import { IUser } from './../../models/authModels/user.model';
 import { PayloadAction } from './../../../node_modules/@reduxjs/toolkit/src/createAction';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const HOST =  'https://main-project-server.herokuapp.com/api'
+const HOST = process.env.REACT_HOST ||  'http://localhost:2700/api'
 
 interface IState {
      auth: boolean,
@@ -29,7 +29,8 @@ export const authAsync: any = createAsyncThunk('auth/auth',
                const { token, status, msg,name ,favorite} = data;
 
                if (status >= 400) throw Error(msg);
-
+               console.log(data);
+               
                localStorage.setItem('user', token);
 
                dispatch(setUser({token,name}))
@@ -54,10 +55,14 @@ export const authSlice = createSlice({
 
      reducers: {
           setUser(state, action: PayloadAction<IUser|undefined>) {
-               state.auth = !state.auth;
+               state.auth = true;
                state.user = action.payload;
                
           },
+          logOutUser(state){
+               state.auth = false;
+               state.user = undefined;
+          }
      },
      extraReducers: (builder) => {
           builder
@@ -76,6 +81,6 @@ export const authSlice = createSlice({
 })
 
 
-export const { setUser } = authSlice.actions;
+export const { setUser ,logOutUser} = authSlice.actions;
 
 export default authSlice.reducer;

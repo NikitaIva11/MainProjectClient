@@ -4,7 +4,7 @@ import userAvatar from '../../../assets/icons/user.png'
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../app/store';
-import { setUser } from '../../../features/auth/authSlice';
+import { logOutUser, setUser } from '../../../features/auth/authSlice';
 
 const notAuthNav = (setLight: any, setDark: any, setNight: any) => {
      return (
@@ -114,7 +114,7 @@ const Navbar = () => {
      }, [])
      const onLogOut = useCallback(()=>{
           localStorage.setItem('user','')
-          dispatch(setUser(undefined))
+          dispatch(logOutUser())
      },[])
      return (
           <div className={styles.navbar_wrapper}>
